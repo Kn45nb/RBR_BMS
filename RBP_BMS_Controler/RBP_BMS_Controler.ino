@@ -33,8 +33,8 @@ uint16_t batteryStatus = 0x0004;                // Trạng thái pin            
 uint16_t remainingCapacity = 900;               // Dung lượng còn lại của pin                   mAh
 uint16_t voltage = 19000;                       // Điện áp hiện tại của pin                     mV
 uint16_t current = 7000;                        // Dòng điện pin đang cấp hoặc nhận             mA          Âm sạc, dương xả
-uint16_t designCapacity = 1000;                 // Dung lượng thiết kế của pin                  mAh         Không đổi trong vòng đời cell
-uint16_t fullChargeCapacity = 950;              // Dung lượng thực khi sạc đầy                  mAh         Giảm dần theo thời gian
+uint16_t designCapacity = 1000;                 // Dung lượng thiết kế của pin                  mAh         Không đổi trong vòng đời Cell
+uint16_t fullChargeCapacity = 950;              // Dung lượng thực khi sạc đầy                  mAh         
 uint16_t cycleCount = 10;                       // Số chu kỳ sạc-xả                             Times
 uint16_t temperature = 2980;                    // Nhiệt độ hiện tại của pin                    Kelvin
 uint8_t relativeSOC = 75;                       // Dung lượng còn lại với dung lượng thực       %           =remainingCapacity/fullChargeCapacity to 8bit
@@ -48,7 +48,7 @@ const char manufacturerName[] = "Notebook";     // Tên nhà sản xuất pin   
 const char deviceName[] = "BAT";                // Tên thiết bị pin                             N/a
 const char serialNumber[] = "0001";             // Số serial duy nhất của pin                   N/a
 
-uint16_t alarmCapacity = 500;                   // Dung lượng ngưỡng cảnh báo pin yếu           mAh
+uint16_t alarmCapacity = 500;                   // Dung lượng ngưỡng cảnh báo pin yếu           mAh         Tùy thuộc vào Cell
 
 uint8_t currentCommand = 0x00;                  // Lưu lệnh hiện tại từ host                    N/a
 
@@ -56,11 +56,11 @@ void setup()
 {
     pinMode(LED_BUILTIN, OUTPUT);
 
-    Wire.begin(BATTERY_SMBUS_ADDRESS);   // Khởi tạo giao tiếp SMBus
-    Wire.onRequest(requestEvent);        // Xử lý yêu cầu từ host
-    Wire.onReceive(receiveEvent);        // Nhận lệnh từ host
+    Wire.begin(BATTERY_SMBUS_ADDRESS);          // Khởi tạo giao tiếp SMBus
+    Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ host
+    Wire.onReceive(receiveEvent);               // Nhận lệnh từ host
 
-    Serial.begin(9600); // Khởi tạo giao tiếp Serial
+    Serial.begin(9600);                         // Khởi tạo giao tiếp Serial
     Serial.println("Battery SMBus Emulator Started");
 }
 
