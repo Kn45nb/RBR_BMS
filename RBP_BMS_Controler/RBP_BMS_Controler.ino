@@ -56,7 +56,10 @@ void setup()
 {
     pinMode(LED_BUILTIN, OUTPUT);
 
-    Wire.begin(BATTERY_SMBUS_ADDRESS);          // Khởi tạo giao tiếp SMBus
+    Wire.setSDA(0); // Đặt GP0 làm SDA
+    Wire.setSCL(1); // Đặt GP1 làm SCL
+    Wire.begin(BATTERY_SMBUS_ADDRESS); // Bắt đầu giao tiếp SMBus với địa chỉ 0x0B
+
     Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ host
     Wire.onReceive(receiveEvent);               // Nhận lệnh từ host
 
