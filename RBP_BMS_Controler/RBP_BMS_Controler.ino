@@ -56,9 +56,9 @@ void setup()
 {
     pinMode(LED_BUILTIN, OUTPUT);
 
-    Wire.setSDA(0); // Đặt GP0 làm SDA
-    Wire.setSCL(1); // Đặt GP1 làm SCL
-    Wire.begin(BATTERY_SMBUS_ADDRESS); // Bắt đầu giao tiếp SMBus với địa chỉ 0x0B
+    Wire.setSDA(0);                             // Đặt GP0 làm SDA
+    Wire.setSCL(1);                             // Đặt GP1 làm SCL
+    Wire.begin(BATTERY_SMBUS_ADDRESS);          // Bắt đầu giao tiếp SMBus với địa chỉ 0x0B
 
     Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ host
     Wire.onReceive(receiveEvent);               // Nhận lệnh từ host
@@ -69,7 +69,7 @@ void setup()
 
 void loop()
 {
-    Wire.onRequest(requestEvent); // Xử lý yêu cầu từ mainboard
+    Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ mainboard
 
     // Thử giao tiếp với mainboard qua địa chỉ SMBus
     Wire.beginTransmission(BATTERY_SMBUS_ADDRESS);
@@ -77,13 +77,13 @@ void loop()
     if (Wire.endTransmission() == 0)
     {
         digitalWrite(LED_BUILTIN, HIGH);
-        delay(500); // Nháy chậm (0.5 giây sáng)
+        delay(500);                             // Nháy chậm (0.5 giây sáng)
         digitalWrite(LED_BUILTIN, LOW);
     }
     else
     {
         digitalWrite(LED_BUILTIN, HIGH);
-        delay(100); // Nháy nhanh (0.1 giây sáng)
+        delay(100);                             // Nháy nhanh (0.1 giây sáng)
         digitalWrite(LED_BUILTIN, LOW);
     }
     delay(1000);
@@ -92,8 +92,8 @@ void loop()
 // Hàm xử lý khi nhận lệnh SMBus từ motherboard
 void receiveEvent(int numBytes)
 {
-    if (numBytes < 1) return; // Không nhận được lệnh nào
-    currentCommand = Wire.read(); // Đọc lệnh từ master
+    if (numBytes < 1) return;                   // Không nhận được lệnh nào
+    currentCommand = Wire.read();               // Đọc lệnh từ master
 }
 
 // Hàm xử lý khi motherboard yêu cầu dữ liệu
@@ -156,7 +156,7 @@ void requestEvent()
             send16BitData(alarmCapacity);
             break;
         default:
-            Wire.write(0x00); // Phản hồi mặc định nếu lệnh không hợp lệ
+            Wire.write(0x00);                   // Phản hồi mặc định nếu lệnh không hợp lệ
             break;
     }
 }
@@ -164,8 +164,8 @@ void requestEvent()
 // Hàm gửi dữ liệu 16-bit qua SMBus
 void send16BitData(uint16_t data)
 {
-    Wire.write(data & 0xFF);        // Byte thấp
-    Wire.write((data >> 8) & 0xFF); // Byte cao
+    Wire.write(data & 0xFF);                    // Byte thấp
+    Wire.write((data >> 8) & 0xFF);             // Byte cao
 }
 
 // Hàm gửi dữ liệu 8-bit qua SMBus
@@ -178,7 +178,7 @@ void send8BitData(uint8_t data)
 void sendStringData(const char* data)
 {
     uint8_t count = 0;
-    while (*data && count < 32) {  // Giới hạn chuỗi tối đa 32 ký tự
+    while (*data && count < 32) {               // Giới hạn chuỗi tối đa 32 ký tự
         Wire.write(*data++);
         count++;
     }
