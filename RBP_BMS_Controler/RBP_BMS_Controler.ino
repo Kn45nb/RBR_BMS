@@ -77,13 +77,13 @@ void loop()
     if (Wire.endTransmission() == 0)
     {
         digitalWrite(LED_BUILTIN, HIGH);
-        delay(500);                             // Nháy chậm (0.5 giây sáng)
+        delay(1000);                            // Nháy chậm (1 giây sáng)
         digitalWrite(LED_BUILTIN, LOW);
     }
     else
     {
         digitalWrite(LED_BUILTIN, HIGH);
-        delay(100);                             // Nháy nhanh (0.1 giây sáng)
+        delay(500);                             // Nháy nhanh (0.5 giây sáng)
         digitalWrite(LED_BUILTIN, LOW);
     }
     delay(1000);
