@@ -153,7 +153,7 @@ void requestEvent()
             send16BitData(alarmCapacity);
             break;
         default:
-            Wire.write(0x00);                   // Phản hồi mặc định nếu lệnh không hợp lệ
+            Wire.write(0x00);
             break;
     }
 }
