@@ -68,19 +68,19 @@ void loop()
 {
     Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ mainboard
 
-    // Thử giao tiếp với mainboard qua địa chỉ SMBus
+
     Wire.beginTransmission(BATTERY_SMBUS_ADDRESS);
-    // Điều chỉnh tốc độ nháy LED dựa trên trạng thái kết nối
+//@@@
     if (Wire.endTransmission() == 0)
     {
         digitalWrite(LED_BUILTIN, HIGH);
-        delay(1000);                            // Nháy chậm (1 giây sáng)
+        delay(1000);
         digitalWrite(LED_BUILTIN, LOW);
     }
     else
     {
         digitalWrite(LED_BUILTIN, HIGH);
-        delay(500);                             // Nháy nhanh (0.5 giây sáng)
+        delay(500);
         digitalWrite(LED_BUILTIN, LOW);
     }
     delay(1000);
