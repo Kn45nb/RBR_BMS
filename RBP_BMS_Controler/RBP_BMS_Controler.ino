@@ -153,7 +153,7 @@ void requestEvent()
             send16BitData(alarmCapacity);
             break;
         default:
-            Wire.write(0x00);
+            Wire.write(0x00);                   // None
             break;
     }
 }
@@ -171,11 +171,12 @@ void send8BitData(uint8_t data)
     Wire.write(data);
 }
 
-// Hàm gửi chuỗi ASCII qua SMBus
+// Hàm gửi chuỗi ASCII qua SMBus    ( Giới hạn chuỗi tối đa 32 ký tự )
 void sendStringData(const char* data)
 {
     uint8_t count = 0;
-    while (*data && count < 32) {               // Giới hạn chuỗi tối đa 32 ký tự
+    while (*data && count < 32)
+    {
         Wire.write(*data++);
         count++;
     }
