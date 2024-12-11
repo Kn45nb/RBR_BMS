@@ -46,10 +46,10 @@ void requestEvent()
     {
         case 0x0F: // Ví dụ: Lệnh yêu cầu dung lượng còn lại
         responseData = 50; // Dung lượng giả định 50%
-            break;
+        break;
     default:
         responseData = 0x00; // Lệnh không hợp lệ hoặc chưa xử lý
-            break;
+        break;
     }
     Wire.write(responseData); // Gửi dữ liệu phản hồi
 }

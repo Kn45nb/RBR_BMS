@@ -26,11 +26,11 @@
 // Biến chứa dữ liệu pin                        // Mô tả                                        Đơn vị      Note
 //-----------------------------------------------------------------------------------------------------------------------------
 uint16_t    batteryStatus = 0x0004;             // Trạng thái pin                               N/a         Bắt buộc
-                                                                                                            // 0x0001: Pin đang sạc
-                                                                                                            // 0x0002: Pin đang xả
-                                                                                                            // 0x0004: Pin đầy
-                                                                                                            // 0x0008: Pin yếu
-                                                                                                            // 0x0010: Pin lỗi hoặc hỏng
+                                                                                                            // 0x0001: Sạc
+                                                                                                            // 0x0002: Xả
+                                                                                                            // 0x0004: Full
+                                                                                                            // 0x0008: Low
+                                                                                                            // 0x0010: Error
 uint16_t    remainingCapacity   = 900;          // Dung lượng còn lại của pin                   mAh
 uint16_t    voltage             = 19000;        // Điện áp hiện tại của pin                     mV
 uint16_t    current             = 7000;         // Dòng điện pin đang cấp hoặc nhận             mA          Âm sạc, dương xả
@@ -49,6 +49,7 @@ const char  deviceName[]        = "BAT";        // Tên thiết bị pin        
 const char  serialNumber[]      = "0001";       // Số serial duy nhất của pin                   N/a
 uint16_t    alarmCapacity       = 500;          // Dung lượng ngưỡng cảnh báo pin yếu           mAh         Tùy thuộc vào Cell
 uint8_t     currentCommand      = 0x00;         // Lưu lệnh hiện tại từ Motherboard IMB410TN    N/a
+//-----------------------------------------------------------------------------------------------------------------------------
 
 void setup()
 {
