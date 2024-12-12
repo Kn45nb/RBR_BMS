@@ -61,7 +61,7 @@ void setup()
     Wire.onReceive(receiveEvent);               // Nhận lệnh từ host
 
     Serial.begin(9600);                         // Khởi tạo giao tiếp Serial
-    Serial.println("Battery SMBus Emulator Started");
+    Serial.println("0x0000");
 }
 
 void loop()
