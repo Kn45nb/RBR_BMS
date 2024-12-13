@@ -62,19 +62,11 @@ void setup()
     Serial.begin(9600);                         // Mở Serial
 
     Serial.println("0x0000");
-    
-    Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ host
-    Wire.onReceive(receiveEvent);               // Nhận lệnh từ host
-
-    
+   
 }
 
 void loop()
 {
-    Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ mainboard
-
-
-    Wire.beginTransmission(BATTERY_SMBUS_ADDRESS);
 
     if (Wire.endTransmission() == 0)
     {
@@ -88,6 +80,11 @@ void loop()
         delay(500);
         digitalWrite(LED_BUILTIN, LOW);
     }
+
+
+
+
+    
     delay(1000);
 }
 
