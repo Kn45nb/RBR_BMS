@@ -53,14 +53,14 @@ uint8_t     currentCommand      = 0x00;         // Lưu lệnh hiện tại từ
 
 void setup()
 {
-    pinMode(LED_BUILTIN, OUTPUT);
-
-    Wire.setSCL(0);                             // Đặt Pin Clock
-    Wire.setSDA(1);                             // Đặt Pin Data
+    pinMode(LED_BUILTIN, OUTPUT);               // Set Pin Led
+    Wire.setSCL(0);                             // Set Pin Clock
+    Wire.setSDA(1);                             // Set Pin Data
     Wire.setClock(100000);                      // Set tốc
 
-    Wire.begin(BATTERY_SMBUS_ADDRESS);          // Bắt đầu giao tiếp SMBus với địa chỉ 0x0B
-    Serial.begin(9600);                         // Khởi tạo giao tiếp Serial
+    Wire.begin(BATTERY_SMBUS_ADDRESS);          // Mở cổng SMBus  
+    Serial.begin(9600);                         // Mở Serial
+
     Serial.println("0x0000");
     
     Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ host
