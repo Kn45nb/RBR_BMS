@@ -57,13 +57,15 @@ void setup()
 
     Wire.setSCL(0);                             // Đặt GP1 làm SCL
     Wire.setSDA(1);                             // Đặt GP0 làm SDA
-    Wire.begin(BATTERY_SMBUS_ADDRESS);          // Bắt đầu giao tiếp SMBus với địa chỉ 0x0B
 
+    Wire.begin(BATTERY_SMBUS_ADDRESS);          // Bắt đầu giao tiếp SMBus với địa chỉ 0x0B
+    Serial.begin(9600);                         // Khởi tạo giao tiếp Serial
+    Serial.println("0x0000");
+    
     Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ host
     Wire.onReceive(receiveEvent);               // Nhận lệnh từ host
 
-    Serial.begin(9600);                         // Khởi tạo giao tiếp Serial
-    Serial.println("0x0000");
+    
 }
 
 void loop()
