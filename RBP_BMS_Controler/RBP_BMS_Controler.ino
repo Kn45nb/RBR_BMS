@@ -23,7 +23,7 @@
 #define CMD_SERIAL_NUMBER 0x1C
 #define CMD_ALARM_CAPACITY 0x1A
 
-// Biến chứa dữ liệu pin                        // Mô tả                                        Đơn vị      Note
+//                        // Mô tả                                        Đơn vị      Note
 //-----------------------------------------------------------------------------------------------------------------------------
 uint16_t    batteryStatus = 0x0004;             // Trạng thái pin                               N/a         Bắt buộc
                                                                                                             // 0x0001: Sạc
@@ -55,8 +55,8 @@ void setup()
 {
     pinMode(LED_BUILTIN, OUTPUT);
 
-    Wire.setSDA(0);                             // Đặt GP0 làm SDA
-    Wire.setSCL(1);                             // Đặt GP1 làm SCL
+    Wire.setSCL(0);                             // Đặt GP1 làm SCL
+    Wire.setSDA(1);                             // Đặt GP0 làm SDA
     Wire.begin(BATTERY_SMBUS_ADDRESS);          // Bắt đầu giao tiếp SMBus với địa chỉ 0x0B
 
     Wire.onRequest(requestEvent);               // Xử lý yêu cầu từ host
