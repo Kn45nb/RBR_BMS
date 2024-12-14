@@ -51,6 +51,7 @@
     const char  serialNumber[]          = "0001";       // Số serial duy nhất của pin                       N/a
     uint16_t    alarmCapacity           = 500;          // Dung lượng ngưỡng cảnh báo pin yếu               mAh         Tùy thuộc vào Cell
     uint8_t     currentCommand          = 0x00;         // Lưu lệnh hiện tại từ Motherboard IMB410TN        N/a
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 void setup()
