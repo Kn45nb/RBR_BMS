@@ -56,8 +56,10 @@
 void setup()
 {
     pinMode(LED_BUILTIN, OUTPUT);               // Set Pin Led
+    //lỗi @Kn45nb
     Wire.setSCL(0);                             // Set Pin Clock
     Wire.setSDA(1);                             // Set Pin Data
+
     Wire.setClock(100000);                      // Set tốc
 
     Wire.begin(BATTERY_SMBUS_ADDRESS);          // Mở cổng SMBus  
