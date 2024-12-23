@@ -2,7 +2,7 @@
 
 //          Var                         Val             Mô tả                                               Đơn vị      Note
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    #define BATTERY_SMBUS_ADDRESS       0x0B            // Địa chỉ SMBus của battery
+    #define SMBUS_ADDRESS               0x48          // Địa chỉ SMBus của battery
 
 // Các lệnh SMBus theo chuẩn ACPI 5.0
     #define CMD_BATTERY_STATUS          0x16
@@ -57,15 +57,16 @@
 void setup()
 {
     pinMode(LED_BUILTIN, OUTPUT);               // Set Pin Led
+
+    Serial.begin(9600);                         // Mở Serial
+
     //lỗi @Kn45nb
     //Wire.setSCL(0);                           // Set Pin Clock
     //Wire.setSDA(1);                           // Set Pin Data
-
     //Wire.setClock(100000);                    // Set tốc
 
-    Wire.begin(BATTERY_SMBUS_ADDRESS);          // Mở cổng SMBus  
-    Serial.begin(9600);                         // Mở Serial
-   
+    Wire.begin(1, 2);                           // Mở cổng SMBus
+    Serial.println("0x00");
 }
 
 void loop()
