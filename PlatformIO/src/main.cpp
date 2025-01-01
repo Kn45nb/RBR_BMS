@@ -1,19 +1,16 @@
-#include <Arduino.h>
-
-// Chân đèn LED tích hợp trên Pico (GPIO 25)
-#define LED_PIN 25
+#include <Arduino.h> // Thư viện cần thiết cho Arduino framework
 
 void setup() {
-  // Thiết lập chân LED là OUTPUT
-  pinMode(LED_PIN, OUTPUT);
+  // Cài đặt chân LED là OUTPUT
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
   // Bật LED
-  digitalWrite(LED_PIN, HIGH);
-  delay(500);  // Chờ 500ms
-
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000); // Đợi 1 giây (1000ms)
+  
   // Tắt LED
-  digitalWrite(LED_PIN, LOW);
-  delay(500);  // Chờ 500ms
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000); // Đợi 1 giây (1000ms)
 }
