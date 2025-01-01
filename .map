@@ -14,5 +14,5 @@ RBR_BMS/                            # Dự án Git
 │   ├── .gitignore
 │   └── platformio.ini
 ├── .gitignore
-├── .map                             # map nàynày
+├── .map                            # map nàynày
 └── package_rp2040_index.json       # Thư mục này
