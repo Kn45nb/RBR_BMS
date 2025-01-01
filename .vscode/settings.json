@@ -1,1 +1,3 @@
-{}
+{
+    "cmake.sourceDirectory": "D:/RBR_BMS/pico-sdk-master"
+}

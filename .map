@@ -9,11 +9,10 @@ RBR_BMS/                            # Dự án Git
 │   ├── include/
 │   ├── lib/
 │   ├── src/
+│   │   └── main.cpp
 │   ├── test/
 │   ├── .gitignore
 │   └── platformio.ini
-
 ├── .gitignore
-├── map                             # map nàynày
-└── package_rp2040_index.json       # Thư mục chứa có thể dùng cho PlatformIO được không?
-
+├── .map                             # map nàynày
+└── package_rp2040_index.json       # Thư mục này
