@@ -1,4 +1,4 @@
-PlatformIO/                     # Thư mục làm việc qua PlatformIO
+PlatformIO/
 ├── .pio/
 ├── .vscode/
 ├── include/
@@ -8,4 +8,5 @@ PlatformIO/                     # Thư mục làm việc qua PlatformIO
 ├── test/
 ├── .gitignore
 ├── .map
+├── package_rp2040_index.json
 └── platformio.ini

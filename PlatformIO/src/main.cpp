@@ -1,4 +1,4 @@
-#include <Arduino.h> // Thư viện cần thiết cho Arduino framework
+#include <Arduino.h>
 
 void setup() {
   // Cài đặt chân LED là OUTPUT
