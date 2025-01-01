@@ -1,11 +1,19 @@
-RBR_BMS/
+RBR_BMS/                            # Dự án Git
 ├── .vscode/
-├── ArduinoIDE/
+├── ArduinoIDE/                     # Thư mục làm việc qua ArduinoIDE
 │   └── 
-├── pico-sdk-master/
-├── PlatformIO/
-│   └── 
+├── pico-sdk-master/                # SDK pico
+├── PlatformIO/                     # Thư mục làm việc qua PlatformIO
+│   ├── .pio/
+│   ├── .vscode/
+│   ├── include/
+│   ├── lib/
+│   ├── src/
+│   ├── test/
+│   ├── .gitignore
+│   └── platformio.ini
+
 ├── .gitignore
-├── map
-├── package_rp2040_index.json
+├── map                             # map nàynày
+└── package_rp2040_index.json       # Thư mục chứa có thể dùng cho PlatformIO được không?
 
