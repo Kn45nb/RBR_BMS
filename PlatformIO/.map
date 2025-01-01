@@ -1,0 +1,11 @@
+PlatformIO/                     # Thư mục làm việc qua PlatformIO
+├── .pio/
+├── .vscode/
+├── include/
+├── lib/
+├── src/
+│   └── main.cpp
+├── test/
+├── .gitignore
+├── .map
+└── platformio.ini
