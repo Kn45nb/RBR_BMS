@@ -1,16 +1,15 @@
 #include <Arduino.h>
 
+// the setup routine runs once when you press reset:
 void setup() {
-  // Cài đặt chân LED là OUTPUT
+  // initialize the digital pin as an output.
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
+// the loop routine runs over and over again forever:
 void loop() {
-  // Bật LED
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(1000); // Đợi 1 giây (1000ms)
-  
-  // Tắt LED
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(1000); // Đợi 1 giây (1000ms)
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(2000);               // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);               // wait for a second
 }
