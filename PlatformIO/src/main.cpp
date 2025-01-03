@@ -2,12 +2,14 @@
 
 #define SMBUS_ADDRESS 0x08 // Địa chỉ Slave (có thể thay đổi)
 
-void requestEvent() {
+void requestEvent()
+{
   // Gửi dữ liệu khi nhận yêu cầu từ Master
   Wire.write(0x42); // Ví dụ: gửi một byte dữ liệu
 }
 
-void receiveEvent(int howMany) {
+void receiveEvent(int howMany)
+{
   // Xử lý dữ liệu nhận từ Master
   while (Wire.available()) {
     uint8_t data = Wire.read();
